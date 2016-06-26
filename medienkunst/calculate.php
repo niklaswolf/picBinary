@@ -1,5 +1,5 @@
 <?php
-const rasterSize = 20;
+const rasterSize = 15;
 
 $file = $_FILES['webcam'];
 $a = move_uploaded_file($file['tmp_name'], 'pictures/source.jpg');
@@ -22,10 +22,12 @@ for ($w=0; $w<$width-$widthRest; $w+=rasterSize){
 		if ($grayValue <= 127){
 			// paint black
 			imagefilledrectangle($img, $w, $h, $w+rasterSize-1, $h+rasterSize-1, imagecolorresolve($img, 0, 0, 0));
+			imagestring($img, 4, $w+4, $h+1, '0', imagecolorresolve($img, 255, 255, 255));
 		}
 		else {
 			//paint white
 			imagefilledrectangle($img, $w, $h, $w+rasterSize-1, $h+rasterSize-1, imagecolorresolve($img, 255, 255, 255));
+			imagestring($img, 4, $w+4, $h+1, '1', imagecolorresolve($img, 0, 0, 0));
 		}
 	}
 }
