@@ -51,11 +51,20 @@
 	
     function countdown (count){
 		if(count==0){
-			document.getElementById('face-guide').innerHTML = 'Klick!';
 			Webcam.snap( function(data_uri) {
-				Webcam.upload(data_uri, 'calculate.php', function (code, text){
-					document.getElementById('result').innerHTML = text;
-				});  
+				
+				Webcam.on( 'uploadProgress', function(progress) {
+		            // Upload in progress
+					document.getElementById('face-guide').innerHTML = 'warte!';
+		        });
+
+		        Webcam.on( 'uploadComplete', function(code, text) {
+		            // Upload complete!
+		        	document.getElementById('result').innerHTML = text;
+		        	document.getElementById('face-guide').innerHTML = 'Klick!';
+		        });
+
+		        Webcam.upload(data_uri, 'calculate.php');
 	        });
 		}
 		else {
