@@ -3,6 +3,9 @@
 <html>
 
 <style>
+	html, body {
+		margin: 0;
+	}
 	#picture-wrapper {
 		display: flex;
 	}
@@ -32,6 +35,11 @@
 		font-family: sans-serif;
 		color: rgba(255,255,255,0.5);
 	}
+	.disclaimer {
+	    padding: 1em 0 0;
+	    text-align: center;
+	    font-family: sans-serif;
+	}
 </style>
 <body>
 	<div id="picture-wrapper">
@@ -41,6 +49,7 @@
 		</div>
 		<div id="result"></div>
 	</div>
+	<div class="disclaimer">Dies ist ein Kunstprojekt der Technischen Hochschule Deggendorf!</div>
 </body>
 
 <script src="webcamjs/webcam.js"></script>
