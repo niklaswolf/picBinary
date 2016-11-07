@@ -21,9 +21,9 @@
 	}
 	#face-guide {
 		position: absolute;
-		width: 460px;
-		height: 620px;
-		margin: 50px 0 0 130px;
+		width: 70%;
+		height: 90%;
+		margin: 5% 15% 0;
 		top: 0;
 		left: 0;
 		z-index: 2;
@@ -54,8 +54,9 @@
 
 <script src="webcamjs/webcam.js"></script>
 <script type="text/javascript">
-
-	Webcam.set({width: 1280, height: 720, dest_width: 1280, dest_height: 720, crop_width: 720, crop_height: 720});
+	width = document.getElementById('preview').offsetWidth;
+	
+	Webcam.set({width: 1280, height: 720, dest_width: 1280, dest_height: 720, crop_width: width, crop_height: width});
 	Webcam.attach("#preview");
 	
     function countdown (count){
